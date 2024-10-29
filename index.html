@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet">
+  <style>
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: #fdf2e9;
+    }
+
+    h1 {
+      color: #ff6347;
+      font-size: 3em;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .message {
+      color: #333;
+      font-size: 1.5em;
+      text-align: center;
+      margin: 10px 20px;
+    }
+    .message-container{
+        font-size: 1.2em;
+    }
+    /* styling for typed element*/
+    #element {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em; /* Adjust to match other elements */
+    color: #ff6347; 
+    font-weight: 800;/* Adjust color as needed */
+    text-align: center;
+  }
+    /* Carousel container */
+    .carousel {
+      width: 80%;
+      max-width: 500px;
+      overflow: hidden;
+      position: relative;
+      margin: 20px auto;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+    }
+
+    /* Buttons */
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 99, 71, 0.8);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 1.2em;
+    }
+
+    .carousel-button.prev {
+      left: 10px;
+    }
+
+    .carousel-button.next {
+      right: 10px;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 1em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday Indu!</h1>
+  <p class="message">Wishing you a wonderful day filled with joy and surprises!</p>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <span id="element"></span>
+
+  <!-- Carousel Section -->
+  <div class="carousel">
+    <button class="carousel-button prev">&#10094;</button>
+    <div class="carousel-track">
+      <div class="carousel-slide"><img src="image 01.jpg" alt="Image 1"></div>
+      <div class="carousel-slide"><img src="happy birthday.avif" alt="Image 2"></div>
+      <div class="carousel-slide"><img src="img03.jpg" alt="Image 3"></div>
+    </div>
+    <button class="carousel-button next">&#10095;</button>
+  </div>
+
+  <footer>Created with ❤️ just for you! by | @ankitraj ©| dated:02/11/2024 </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
+
+    // Auto-slide every 3 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }, 3000);
+  </script>
+   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
+   <!-- Setup and start animation! -->
+   <script>
+       var typed = new Typed('#element', {
+           strings: ['pta nhi kya', 'samajh nhi aa rha'],
+           typeSpeed: 50,
+       });
+   </script>
+</body>
+</html>

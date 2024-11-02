@@ -63,7 +63,10 @@
 
     .carousel-slide {
       min-width: 100%;
-      box-sizing: border-box;
+  backface-visibility: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
     }
 
     .carousel-slide img {
@@ -73,7 +76,7 @@
     }
     crousel-slide.flip
     {
-      animation: flip is forwards;
+      animation: flip 1s forwards;
     }
      @keyframes flip {
       0% {
@@ -129,8 +132,8 @@
   <div class="carousel">
     <button class="carousel-button prev">&#10094;</button>
     <div class="carousel-track">
-      <div class="carousel-slide"><img src="happy birthday.avif" alt="Image 1"></div>
-      <div class="carousel-slide"><img src="image 01.png" alt="Image 2"></div>
+      <div class="carousel-slide"><img src="image 01.png" alt="Image 1"></div>
+      <div class="carousel-slide"><img src="happy birthday.avif" alt="Image 2"></div>
       <div class="carousel-slide"><img src="pic02.jpg" alt="Image 3"></div>
     </div>
     <button class="carousel-button next">&#10095;</button>
@@ -139,38 +142,39 @@
   <footer>Created with ❤️ just for you! by | @ankitraj | dated:02/11/2024 ©  </footer>
 
   <script>
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const nextButton = document.querySelector('.carousel-button.next');
-    const prevButton = document.querySelector('.carousel-button.prev');
-    let currentIndex = 0;
-  
-    function updateCarousel() {
-      const slideWidth = slides[0].getBoundingClientRect().width;
-      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-  
-      // Remove the flip class from all slides
-      slides.forEach(slide => slide.classList.remove('flip'));
-  
-      // Add flip class to the current slide
-      slides[currentIndex].classList.add('flip');
-    }
-  
-    nextButton.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateCarousel();
-    });
-  
-    prevButton.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-      updateCarousel();
-    });
-  
-    // Auto-slide every 3 seconds
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % slides.length;
-      updateCarousel();
-    }, 3000);
+   const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.carousel-button.next');
+const prevButton = document.querySelector('.carousel-button.prev');
+let currentIndex = 0;
+
+function updateCarousel() {
+  const slideWidth = slides[0].getBoundingClientRect().width;
+  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+  // Remove the flip class from all slides
+  slides.forEach(slide => slide.classList.remove('flip'));
+
+  // Add flip class to the current slide
+  slides[currentIndex].classList.add('flip');
+}
+
+nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+});
+
+prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  updateCarousel();
+});
+
+// Auto-slide every 3 seconds
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}, 3000);
+
   </script>
    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 

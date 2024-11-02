@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet">
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
   <style>
     /* Basic styling */
     body {
@@ -35,17 +36,22 @@
       text-align: center;
       margin: 10px 20px;
     }
-    .message-container{
-        font-size: 1.2em;
+
+    .message-container {
+      font-size: 1.2em;
     }
+
     /* styling for typed element*/
     #element {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5em; /* Adjust to match other elements */
-    color: #ff6347; 
-    font-weight: 800;/* Adjust color as needed */
-    text-align: center;
-  }
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5em;
+      /* Adjust to match other elements */
+      color: #ff6347;
+      font-weight: 800;
+      /* Adjust color as needed */
+      text-align: center;
+    }
+
     /* Carousel container */
     .carousel {
       width: 80%;
@@ -63,10 +69,10 @@
 
     .carousel-slide {
       min-width: 100%;
-  backface-visibility: hidden;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 1s;
+      backface-visibility: hidden;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 1s;
     }
 
     .carousel-slide img {
@@ -74,11 +80,12 @@
       display: block;
       border-radius: 10px;
     }
-    crousel-slide.flip
-    {
+
+    .carousel-slide.flip {
       animation: flip 1s forwards;
     }
-     @keyframes flip {
+
+    @keyframes flip {
       0% {
         transform: rotateY(0deg);
       }
@@ -122,6 +129,7 @@
     }
   </style>
 </head>
+
 <body>
   <h1>Happy Birthday Indu!</h1>
   <p class="message">Wishing you a wonderful day filled with joy and surprises!</p>
@@ -139,51 +147,51 @@
     <button class="carousel-button next">&#10095;</button>
   </div>
 
-  <footer>Created with ❤️ just for you! by | @ankitraj | dated:02/11/2024 ©  </footer>
+  <footer>Created with ❤️ just for you! by | @ankitraj | dated:02/11/2024 © </footer>
 
   <script>
-   const track = document.querySelector('.carousel-track');
-const slides = Array.from(track.children);
-const nextButton = document.querySelector('.carousel-button.next');
-const prevButton = document.querySelector('.carousel-button.prev');
-let currentIndex = 0;
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.carousel-button.next');
+    const prevButton = document.querySelector('.carousel-button.prev');
+    let currentIndex = 0;
 
-function updateCarousel() {
-  const slideWidth = slides[0].getBoundingClientRect().width;
-  track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    function updateCarousel() {
+      const slideWidth = slides[0].getBoundingClientRect().width;
+      track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-  // Remove the flip class from all slides
-  slides.forEach(slide => slide.classList.remove('flip'));
+      // Remove the flip class from all slides
+      slides.forEach(slide => slide.classList.remove('flip'));
 
-  // Add flip class to the current slide
-  slides[currentIndex].classList.add('flip');
-}
+      // Add flip class to the current slide
+      slides[currentIndex].classList.add('flip');
+    }
 
-nextButton.addEventListener('click', () => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-});
+    nextButton.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    });
 
-prevButton.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  updateCarousel();
-});
+    prevButton.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    });
 
-// Auto-slide every 3 seconds
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  updateCarousel();
-}, 3000);
-
+    // Auto-slide every 3 seconds
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }, 3000);
   </script>
-   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
-   <!-- Setup and start animation! -->
-   <script>
-       var typed = new Typed('#element', {
-           strings: ['Kuch pal hamesha yaad reh jaate hain...', ' aur tum unmein se ek ho.'],
-           typeSpeed: 90,
-       });
-   </script>
+  <!-- Setup and start animation! -->
+  <script>
+    var typed = new Typed('#element', {
+      strings: ['Kuch pal hamesha yaad reh jaate hain...', ' aur tum unmein se ek ho.'],
+      typeSpeed: 90,
+    });
+  </script>
 </body>
+
 </html>

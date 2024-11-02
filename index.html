@@ -53,6 +53,7 @@
       overflow: hidden;
       position: relative;
       margin: 20px auto;
+      perspective: 1000px;
     }
 
     .carousel-track {
@@ -69,6 +70,23 @@
       width: 100%;
       display: block;
       border-radius: 10px;
+    }
+    crousel-slide.flip
+    {
+      animation: flip is forwards;
+    }
+     @keyframes flip {
+      0% {
+        transform: rotateY(0deg);
+      }
+
+      50% {
+        transform: rotateY(90deg);
+      }
+
+      100% {
+        transform: rotateY(0deg);
+      }
     }
 
     /* Buttons */
@@ -126,22 +144,28 @@
     const nextButton = document.querySelector('.carousel-button.next');
     const prevButton = document.querySelector('.carousel-button.prev');
     let currentIndex = 0;
-
+  
     function updateCarousel() {
       const slideWidth = slides[0].getBoundingClientRect().width;
       track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+  
+      // Remove the flip class from all slides
+      slides.forEach(slide => slide.classList.remove('flip'));
+  
+      // Add flip class to the current slide
+      slides[currentIndex].classList.add('flip');
     }
-
+  
     nextButton.addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % slides.length;
       updateCarousel();
     });
-
+  
     prevButton.addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + slides.length) % slides.length;
       updateCarousel();
     });
-
+  
     // Auto-slide every 3 seconds
     setInterval(() => {
       currentIndex = (currentIndex + 1) % slides.length;
